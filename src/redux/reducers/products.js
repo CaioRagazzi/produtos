@@ -1,25 +1,11 @@
 const INITIAL_STATE = {
-    products: [
-        {
-            id: '1',
-            name: 'caio',
-            price: 80
-        },
-        {
-            id: '2',
-            name: 'douglas',
-            price: 80
-        },
-        {
-            id: '3',
-            name: 'Amaral',
-            price: 100
-        },
-    ]
+    products: []
 }
 
 const productReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
+        case 'LIST_PRODUCTS':
+            return { ...state, products: action.payload }
         case 'ADD_PRODUCT':
             return { ...state, products: [...state.products, action.payload] }
         case 'REMOVE_PRODUCT':
