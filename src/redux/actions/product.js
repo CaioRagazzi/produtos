@@ -3,7 +3,7 @@ import axios from "axios";
 const fetchProducts = () => {
     return function (dispatch) {
         dispatch(isLoading(true))
-        return axios.get('http://192.168.1.30:3000/products').then(res => {
+        return axios.get('https://us-central1-broascasterchat.cloudfunctions.net/api/pokemons/list').then(res => {
             dispatch(list(res.data))
             dispatch(isLoading(false))
         }).catch(err => {
@@ -41,4 +41,4 @@ const add = (product) => {
     }
 }
 
-export { fetchProducts }
+export { fetchProducts, list }
